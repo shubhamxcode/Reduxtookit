@@ -18,7 +18,11 @@ export const todoslice=createSlice({
             }
             state.todos.push(todo)
         },// state,action
-        removetodo:()=>{},
-
+        removetodo:(state,action)=>{
+            state.todos=state.todos.filter((todo)=>todo.id !== action.payload)
+        },
     }//prop and function
 })
+
+export const {addtodo,removetodo}=todoslice.actions
+export default todoslice.reducer
